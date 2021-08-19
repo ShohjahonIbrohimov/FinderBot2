@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ tableData, headerCols, bodyCols }) => {
+const Table = ({ tableData, headerCols, bodyCols, handleDelete }) => {
   return (
     <table>
       <tr>
@@ -16,10 +16,7 @@ const Table = ({ tableData, headerCols, bodyCols }) => {
               <td>{p[col]}</td>
             ))}
             <td style={{ display: "flex", justifyContent: "space-around" }}>
-              <span class="icon_wrap">
-                <i class="bx bxs-edit" style={{ color: "#555" }}></i>
-              </span>
-              <span class="icon_wrap">
+              <span class="icon_wrap" onClick={() => handleDelete(p._id)}>
                 <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
               </span>
             </td>

@@ -15,4 +15,11 @@ const getCategories = () => {
   });
 };
 
-export { createCategory, getCategories };
+const deleteCategory = (id) => {
+  return axios({
+    url: `/telegram/category/delete/${id}`,
+    method: "DELETE",
+  });
+};
+
+export { createCategory, getCategories, deleteCategory };

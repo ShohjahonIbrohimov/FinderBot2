@@ -15,4 +15,11 @@ const getProducts = (data) => {
   });
 };
 
+const deleteProduct = (id) => {
+  return axios({
+    url: "/telegram/product/all",
+    method: "DELETE",
+  });
+};
+
 export { createProduct, getProducts };

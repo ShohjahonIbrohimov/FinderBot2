@@ -15,4 +15,11 @@ const getPodCategories = () => {
   });
 };
 
-export { createPodCategory, getPodCategories };
+const deletePodcategory = (id) => {
+  return axios({
+    url: `/telegram/podcategory/delete/${id}`,
+    method: "DELETE",
+  });
+};
+
+export { createPodCategory, getPodCategories, deletePodcategory };

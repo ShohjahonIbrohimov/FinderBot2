@@ -1,9 +1,14 @@
 import React from "react";
 import TableCRUD from "../../Reusable/TableCRUD";
-import { createCategory, getCategories } from "../../../api/calls/category";
+import {
+  createCategory,
+  getCategories,
+  deleteCategory,
+} from "../../../api/calls/category";
 import {
   createPodCategory,
   getPodCategories,
+  deletePodcategory,
 } from "../../../api/calls/pod_category";
 
 import MenuForm from "./MenuForm";
@@ -23,6 +28,7 @@ const Menu = ({}) => {
           getTableData={getCategories}
           createTableData={createCategory}
           Form={MenuForm}
+          handleDelete={deleteCategory}
         ></TableCRUD>
         <TableCRUD
           title="Добавления Podcategory"
@@ -31,6 +37,7 @@ const Menu = ({}) => {
           getTableData={getPodCategories}
           createTableData={createPodCategory}
           Form={MenuFormPodcategory}
+          handleDelete={deletePodcategory}
         ></TableCRUD>
       </div>
     </div>

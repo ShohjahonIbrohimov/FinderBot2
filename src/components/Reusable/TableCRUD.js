@@ -6,6 +6,7 @@ import Table from "./Table";
 function TableCRUD({
   getTableData,
   createTableData,
+  handleDelete,
   headerCols,
   bodyCols,
   Form,
@@ -41,6 +42,17 @@ function TableCRUD({
       .catch((err) => console.log(err));
   };
 
+  const deleteTableData = (id) => {
+    setloading(true);
+    handleDelete(id)
+      .then(() => {
+        handleGetTableData();
+        setloading(false);
+        reset();
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     handleGetTableData();
   }, []);
@@ -61,6 +73,7 @@ function TableCRUD({
             tableData={tableData}
             headerCols={headerCols}
             bodyCols={bodyCols}
+            handleDelete={deleteTableData}
           />
         </div>
 
