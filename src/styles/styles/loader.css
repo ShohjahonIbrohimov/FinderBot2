@@ -31,6 +31,10 @@
   animation: ldio-m9h0w5l6hui 1s linear infinite;
 }
 
+.ldio-m9h0w5l6hui.dark > div {
+  border-color: var(--primary) transparent var(--primary) transparent;
+}
+
 .ldio-m9h0w5l6hui > div:nth-child(2) {
   border-color: transparent;
 }
@@ -43,9 +47,6 @@
 
 .loadingio-spinner-dual-ring-wecz1vi0odr {
   display: inline-block;
-}
-
-.ldio-m9h0w5l6hui {
 }
 
 .ldio-m9h0w5l6hui div {

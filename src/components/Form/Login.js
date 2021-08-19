@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../redux/auth/thunks";
-import { arrayToFormData } from "../../utils/helpers";
 import { Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import Button from "../Reusable/Button";
 import toast from "react-hot-toast";
-import LoaderBtn from "../Reusable/LoaderBtn";
 import Loader from "../Reusable/Loader";
 
 const Login = () => {

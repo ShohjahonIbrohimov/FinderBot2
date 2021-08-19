@@ -1,5 +1,6 @@
 import React from "react";
 import Profile from "../components/Dashboard/Profile/Profile";
+import Menu from "../components/Dashboard/Menu/Menu";
 import InitialdDashdDataLoad from "../config/InitialdDashdDataLoad";
 import {
   Dashboard,
@@ -44,10 +45,11 @@ export const ROUTES = [
   {
     path: "/",
     key: "APP_DASHBOARD",
-    component: () =>
+    component: () => (
       <InitialdDashdDataLoad>
         <Dashboard />
       </InitialdDashdDataLoad>
+    ),
   },
 ];
 
@@ -56,7 +58,7 @@ export const DASHBOARD_ROUTES = [
     path: "/",
     key: "DASHBOARD_MAIN",
     exact: true,
-    component: () => <Main />,
+    component: () => <Offers />,
   },
 
   {
@@ -141,6 +143,12 @@ export const DASHBOARD_ROUTES = [
     key: "DASHBOARD_STATISTICS",
     exact: true,
     component: () => <Profile />,
+  },
+  {
+    path: "/menu",
+    key: "DASHBOARD_MENU",
+    exact: true,
+    component: () => <Menu />,
   },
 ];
 

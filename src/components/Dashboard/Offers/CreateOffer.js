@@ -1,32 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import {
-  crepc_countries,
-  field_settings,
-  publish_options,
-  offer_info_fields,
-  countries,
-  pricelist_ocuntries,
-} from "./assets/offer_fields";
-import styles from "./styles/CreateOffer.module.css";
 import { useForm } from "react-hook-form";
-import Button from "../../Reusable/Button";
-import Benefits from "./Benefits";
-import TargetAudience from "./TargetAudience";
-import ProsPartner from "./ProsPartner";
-import ProsClient from "./ProsClient";
-import Checkbox from "../../Reusable/Checkbox";
-import FileInput from "../../Reusable/FileInput";
-import WorkingHour from "./WorkingHour";
-import InputText from "../../Reusable/InputText";
-import TextArea from "../../Reusable/TextArea";
-import Radio from "../../Reusable/Radio";
-import Select from "../../Reusable/Select";
-import TrafficCountry from "./TrafficCountry";
-import PriceListCountry from "./PriceListCountry";
-import CrEpc from "./CrEpc";
 import { serialize } from "object-to-formdata";
-import { AdminImages } from "../../../constants/icons";
-import MultipleSelect from "../../Reusable/MultipleSelect";
 import { postOffer } from "../../../api/api_calls";
 import toast from "react-hot-toast";
 
@@ -83,48 +57,40 @@ const CreateOffer = () => {
     reset(defaultValues);
   }, []);
 
-  // Watches
-  const working_hours_country = watch("working_hours_country");
-  const traffic_country = watch("traffic_country");
-  const pricelist_country = watch("pricelist_country");
-  const crepc_country = watch("crepc_country");
-
   return (
     <div class="w3-container w3-margin-left">
-    <div class="wrap_first_page">
-      <h1 class="main_title">Добавления текста о боте</h1>
-      <div class="top_part">
-        <h3>наш бот умеит все</h3>
-      </div>
-
-      <div class="button_wrapper">
-        <div class="left_btn_wrapper">
-          <button class="w3-button w3-small w3-blue w3-round">
-            Добавить
-          </button>
-          <button class="w3-button w3-small w3-green w3-round">
-            Изменить
-          </button>
-          <button class="w3-button w3-small w3-red w3-round">
-            Удалить
-          </button>
+      <div class="wrap_first_page">
+        <h1 class="main_title">Добавления текста о боте</h1>
+        <div class="top_part">
+          <h3>наш бот умеит все</h3>
         </div>
-        <div class="right_btn_wrapper">
-          <button class="w3-button w3-small w3-blue w3-round">
+
+        <div class="button_wrapper">
+          <div class="left_btn_wrapper">
+            <button class="w3-button w3-small w3-blue w3-round">
+              Добавить
+            </button>
+            <button class="w3-button w3-small w3-green w3-round">
+              Изменить
+            </button>
+            <button class="w3-button w3-small w3-red w3-round">Удалить</button>
+          </div>
+          <div class="right_btn_wrapper">
+            <button class="w3-button w3-small w3-blue w3-round">
+              Сохранить
+            </button>
+          </div>
+        </div>
+
+        <div class="bottom_part"></div>
+
+        <div class="save_btn">
+          <button class="w3-button w3-small w3-blue w3-round w3-right">
             Сохранить
           </button>
         </div>
       </div>
-
-      <div class="bottom_part"></div>
-
-      <div class="save_btn">
-        <button class="w3-button w3-small w3-blue w3-round w3-right">
-          Сохранить
-        </button>
-      </div>
     </div>
-  </div>
   );
 };
 

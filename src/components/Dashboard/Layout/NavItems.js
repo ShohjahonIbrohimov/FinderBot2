@@ -22,6 +22,11 @@ const navItems = [
     link: "/production",
   },
   {
+    name: "Меню",
+    icon: layoutMenuIcons.domain,
+    link: "/menu",
+  },
+  {
     name: "Добовления и изменения цена",
     icon: layoutMenuIcons.finance,
     link: "/users",

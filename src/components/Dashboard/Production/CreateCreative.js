@@ -1,149 +1,161 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import FileInput from "../../Reusable/FileInput";
-import InputText from "../../Reusable/InputText";
-import Radio from "../../Reusable/Radio";
-import { offer_geo, payment_model, scenario } from "./items";
-import fields from "../assets/fields";
-import Button from "../../Reusable/Button";
-import { AdminImages } from "../../../constants/icons";
-import ASelect from "../../Reusable/ASelect";
-import RSelect from "../../Reusable/Select";
-import { serialize } from "object-to-formdata";
-import { create_creative } from "../../../api/api_calls";
-import toast from "react-hot-toast";
+import { createProduct, getProducts } from "../../../api/calls/product";
+import Loader from "../../Reusable/Loader";
+import LoaderBtn from "../../Reusable/LoaderBtn";
 
 function CreateCreative() {
-  const [file, setFile] = useState(null);
-  const [imageUrl, setimageUrl] = useState("");
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
+  const [open, setopen] = useState(false);
+  const [products, setproducts] = useState([]);
+  const [loading, setloading] = useState(false);
+  const [tloading, settloading] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
+
+  const handleGetProducts = () => {
+    settloading(true);
+    getProducts().then((res) => {
+      settloading(false);
+      setproducts(res.data.data);
+    });
+  };
+
+  const handleModalOpen = () => {
+    setopen(true);
+  };
+
   const onSubmit = (data) => {
-    console.log(data);
-    let formData = serialize({
-      ...data,
-      category: data.category.value,
-      sub_category: data.sub_category.value,
-      banner: imageUrl,
-    });
-    toast.promise(create_creative(formData), {
-      loading: "Создание креатива ...",
-      success: (e) => {
-        console.log(e);
-        return "Креатив создан!";
-      },
-      error: <b>Ошибка при создании предложения</b>,
-    });
-    console.log(formData);
-  };
-  const inputFile = useRef();
-
-  const handleFile = (e) => {
-    setFile(URL.createObjectURL(e.target.files[0]));
+    setloading(true);
+    createProduct(data)
+      .then((res) => {
+        setopen(false);
+        handleGetProducts();
+        setloading(false);
+        reset();
+      })
+      .catch((err) => console.log(err));
   };
 
-  const onEdit = () => {
-    inputFile.current.click();
-  };
-
-  const onDelete = () => {
-    setFile("");
-  };
+  useEffect(() => {
+    handleGetProducts();
+  }, []);
 
   return (
-    
     <div class="w3-container">
-    <div class="container">
-      <h2>Добавления аккаунта для продажа</h2>
-      <div class="item">
-        <h3>
-          Добавить аккаунты
-        </h3>
-        <button>+</button>
-      </div>
-      <div class="item">
-        <h3>
-          Плошадки
-        </h3>
-        <select name="" id="">
-          <option value="">
-            Facebook
-          </option>
-          <option value="">
-            Tik-tok
-          </option>
-          <option value="">
-            Google
-          </option>
-         
-        </select>
-      </div>
-      <div class="item">
-        <h3>
-          Тип
-        </h3>
-        <select name="" id="">
-          <option value="">
-            BM Facebook 50$
-          </option>
-          <option value="">
-            BM Facebook 250$
-          </option>
-          <option value="">
-            AK FB ЗРД + ФП + БМ + TOKEN EAAB
-          </option>
-          <option value="">
-            Соц + БМ + ФП + линк инвайта в БМ + EAAB (личка) + EAAG (БМ) 
+      <div class="container">
+        <div class="page-header">
+          <h2 class="page-header__title">Добавления аккаунта для продажа</h2>
+          <button id="myBtn" class="app-button" onClick={handleModalOpen}>
+            Добавить
+          </button>
+        </div>
 
-          </option>
-          <option value="">
-            Аккаунты ФБ  ФП есть 14+ дней фарма + Token EAAB (есть фото) с друзьями .
+        <div style={{ minHeight: "80vh" }}>
+          <Loader light={false} loading={tloading} />
+          <table>
+            <tr>
+              <th>Плошадки</th>
+              <th>Тип</th>
+              <th>Гео </th>
+              <th>Цена</th>
+              <th>Импортировать.ф</th>
+              <th></th>
+            </tr>
+            <tbody>
+              {products.map((p) => (
+                <tr>
+                  <td>{p.name}</td>
+                  <td>{p.category_id}</td>
+                  <td>{p.states_id}</td>
+                  <td>{p.price}</td>
+                  <td>{p.description}</td>
+                  <td
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <span class="icon_wrap">
+                      <i class="bx bxs-edit" style={{ color: "#555" }}></i>
+                    </span>
+                    <span class="icon_wrap">
+                      <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-          </option>
-          <option value="">
-            BM TRUST 250$
-          </option>
-          <option value="">
-            BM VERIFIED (БЕЗ ДНЕВНОГО ЛИМИТА) -
-          </option>
-        </select>
-      </div>
-      <div class="item">
-        <h3>
-          Гео
-        </h3>
-        <select name="" id="">
-          <option value="">
-            Россия
-          </option>
-          <option value="">
-            Франция
-          </option>
-          <option value="">
-            Украина
-          </option>
-          <option value="">
-            США
-          </option>
-        </select>
-      </div>
-      <div class="item">
-        <h3>
-          Цена
-        </h3>
-        <input type="text" value="250$" name="" id="" />
-      </div>
-      <div class="item f-end">
-        <button>Импортировать.ф</button>
-        <textarea  name="" id="" cols="30" rows="10"></textarea>
-        <button>Добавить</button>
+        <div
+          id="myModal"
+          class="modal"
+          style={open ? { display: "block" } : {}}
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close" onClick={() => setopen(false)}>
+                &times;
+              </span>
+              <h3>Добавления аккаунта для продажа</h3>
+            </div>
+            <div class="modal-body">
+              <form onSubmit={handleSubmit(onSubmit)} class="support-form">
+                <label>Плошадки:</label>
+                <br />
+                <select name="product" ref={register({ required: true })}>
+                  <option value="1">Facebook</option>
+                  <option value="2">Tik-tok</option>
+                  <option value="3">Google</option>
+                </select>
+                <br />
+                <label>Тип:</label>
+                <br />
+                <select name="sub_product" ref={register({ required: true })}>
+                  <option value="1">BM Facebook 50$</option>
+                  <option value="2">BM Facebook 250$</option>
+                  <option value="3">AK FB ЗРД + ФП + БМ + TOKEN EAAB</option>
+                  <option value="4">
+                    Соц + БМ + ФП + линк инвайта в БМ + EAAB (личка) + EAAG (БМ)
+                  </option>
+                  <option value="5">
+                    Аккаунты ФБ ФП есть 14+ дней фарма + Token EAAB (есть фото)
+                    с друзьями .
+                  </option>
+                  <option value="6">BM TRUST 250$</option>
+                  <option value="7">BM VERIFIED (БЕЗ ДНЕВНОГО ЛИМИТА) -</option>
+                </select>
+                <br />
+                <label>Гео :</label>
+                <br />
+                <select name="states_id" ref={register({ required: true })}>
+                  <option value="1">Россия</option>
+                  <option value="2">Франция</option>
+                  <option value="3">Украина</option>
+                  <option value="4">США</option>
+                </select>
+                <br />
+                <label>Цена:</label>
+                <br />
+                <input
+                  type="tgaccount"
+                  name="price"
+                  ref={register({ required: true })}
+                />
+                <label>Импортировать.ф:</label>
+                <br />
+                <textarea
+                  name="description"
+                  ref={register({ required: true })}
+                  rows="4"
+                  cols="50"
+                />
+                <br />
+                <br />
+                <LoaderBtn loading={loading} title="Добавить" />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 

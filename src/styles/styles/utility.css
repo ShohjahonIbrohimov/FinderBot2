@@ -45,7 +45,8 @@
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
