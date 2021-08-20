@@ -13,28 +13,36 @@ const CreateProductForm = ({
   const [loading2, setloading2] = useState(false);
   const [checked, setchecked] = useState(false);
   const [botData, setbotData] = useState({});
+  const [error, seterror] = useState(null);
 
   const onSubmit2 = (data) => {
     setloading2(true);
     if (!checked) {
-      checkToken(data.token).then((res) => {
-        setchecked(true);
-        setbotData({
-          first_name: res.data.result.first_name,
-          username: res.data.result.username,
+      checkToken(data.token)
+        .then((res) => {
+          setchecked(true);
+          setbotData({
+            first_name: res.data.result.first_name,
+            username: res.data.result.username,
+          });
+          setValue("first_name", res.data.result.first_name);
+          setValue("username", `@${res.data.result.username}`);
+          setloading2(false);
+        })
+        .catch((res) => {
+          seterror(res.message);
+          setloading2(false);
         });
-        setValue("first_name", res.data.result.first_name);
-        setValue("username", res.data.result.username);
-        setloading2(false);
-      });
     } else {
-      delete data.token;
-      onSubmit(botData);
+      setloading2(false);
+      setchecked(false);
+      onSubmit({ ...data, ...botData });
     }
   };
 
   const handleReset = () => {
     reset({});
+    seterror(null);
     setchecked(false);
   };
 
@@ -44,12 +52,14 @@ const CreateProductForm = ({
       <br />
       <input name="token" ref={register({ required: true })} />
       <br />
-      <label>Имя:</label>
-      <input disabled name="first_name" ref={register({ required: false })} />
-      <br />
       <label>Имя пользователя:</label>
       <input disabled name="username" ref={register({ required: false })} />
       <br />
+      {error && (
+        <span style={{ color: "#E54E4E" }}>
+          {error} <br /> <br />
+        </span>
+      )}
       <div style={{ display: "flex" }}>
         <div>
           <LoaderBtn

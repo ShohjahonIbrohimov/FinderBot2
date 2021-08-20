@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Loader from "./Loader";
 import Table from "./Table";
+import toast from "react-hot-toast";
 
 function TableCRUD({
   addBtn = true,
@@ -39,8 +40,13 @@ function TableCRUD({
         handleGetTableData();
         setloading(false);
         reset();
+        toast.success("Бот создан");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setloading(false);
+        toast.error(err.message);
+        reset();
+      });
   };
 
   const deleteTableData = (id) => {
