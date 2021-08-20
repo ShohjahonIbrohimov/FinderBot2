@@ -1,81 +1,39 @@
 import React, { useState } from "react";
+import { deleteSupport, getSupports } from "../../../api/calls/support";
+import TableCRUD from "../../Reusable/TableCRUD";
+
+const headerCols = [
+  "Имя пользователя",
+  "Описание",
+  "билет",
+  "ID пользователя",
+  "ID TG",
+  "Ник TG",
+];
+const bodyCols = [
+  "username",
+  "description",
+  "ticked_cod",
+  "user_id",
+  "telegram_id",
+  "telegram_nick",
+];
 
 const Statistics = ({}) => {
   const [open, setopen] = useState(false);
 
-  const handleModalOpen = (params) => {
-    setopen(true);
-  };
-
   return (
     <div class="w3-container">
-      <div class="page-header">
-        <h2 class="page-header__title">Добавление Суппорта</h2>
-        <button id="myBtn" class="app-button" onClick={handleModalOpen}>
-          Добавить
-        </button>
-      </div>
-
-      <table>
-        <tr>
-          <th>Имя</th>
-          <th>Т.аккаунт</th>
-          <th>Дата</th>
-          <th></th>
-        </tr>
-        <tr>
-          <td>Александир</td>
-          <td>@awesome_boy</td>
-          <td>14:36 21.06.2021</td>
-          <td style={{ display: "flex", justifyContent: "space-around" }}>
-            <span class="icon_wrap">
-              <i class="bx bxs-edit" style={{ color: "#555" }}></i>
-            </span>
-            <span class="icon_wrap">
-              <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Александир</td>
-          <td>@awesome_boy</td>
-          <td>14:36 21.06.2021</td>
-          <td style={{ display: "flex", justifyContent: "space-around" }}>
-            <span class="icon_wrap">
-              <i class="bx bxs-edit" style={{ color: "#555" }}></i>
-            </span>
-            <span class="icon_wrap">
-              <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Александир</td>
-          <td>@awesome_boy</td>
-          <td>14:36 21.06.2021</td>
-          <td style={{ display: "flex", justifyContent: "space-around" }}>
-            <span class="icon_wrap">
-              <i class="bx bxs-edit" style={{ color: "#555" }}></i>
-            </span>
-            <span class="icon_wrap">
-              <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>Александир</td>
-          <td>@awesome_boy</td>
-          <td>14:36 21.06.2021</td>
-          <td style={{ display: "flex", justifyContent: "space-around" }}>
-            <span class="icon_wrap">
-              <i class="bx bxs-edit" style={{ color: "#555" }}></i>
-            </span>
-            <span class="icon_wrap">
-              <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
-            </span>
-          </td>
-        </tr>
-      </table>
+      <TableCRUD
+        title="Добавление Суппорта"
+        headerCols={headerCols}
+        bodyCols={bodyCols}
+        getTableData={getSupports}
+        createTableData={() => {}}
+        Form={false}
+        handleDelete={deleteSupport}
+        addBtn={false}
+      ></TableCRUD>
 
       <div id="myModal" class="modal" style={open ? { display: "block" } : {}}>
         <div class="modal-content">
