@@ -21,7 +21,6 @@
   font-family: "Gilroy-Bold";
 }
 
-
 .registerSection form input.required_field {
   border-color: red;
 }
@@ -287,34 +286,6 @@
   font-size: 48px;
   font-family: "Gilroy-Bold";
   margin-bottom: 5rem;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-  margin-right: 1rem;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #32384e;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #32384e;
-}
-
-.borz_rules_wrapper {
-  margin: 190px auto;
-  padding: 8rem 0;
 }
 
 .borz_rules {

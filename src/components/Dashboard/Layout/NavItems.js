@@ -56,6 +56,11 @@ const navItems = [
     icon: layoutMenuIcons.new_request,
     link: "/sms",
   },
+  {
+    name: "Настройки бота",
+    icon: layoutMenuIcons.new_request,
+    link: "/bot-settings",
+  },
 ];
 
 export default navItems;

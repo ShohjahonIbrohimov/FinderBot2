@@ -101,6 +101,7 @@ function TableCRUD({
                   onSubmit={onSubmit}
                   watch={watch}
                   setValue={setValue}
+                  reset={reset}
                 />
               )}
             </div>
