@@ -1,6 +1,7 @@
 import React from "react";
 import Profile from "../components/Dashboard/Profile/Profile";
 import Menu from "../components/Dashboard/Menu/Menu";
+import SMS from "../components/Dashboard/SMS/SMS";
 import InitialdDashdDataLoad from "../config/InitialdDashdDataLoad";
 import {
   Dashboard,
@@ -149,6 +150,12 @@ export const DASHBOARD_ROUTES = [
     key: "DASHBOARD_MENU",
     exact: true,
     component: () => <Menu />,
+  },
+  {
+    path: "/sms",
+    key: "DASHBOARD_SMS",
+    exact: true,
+    component: () => <SMS />,
   },
 ];
 

@@ -17,9 +17,9 @@ const getProducts = (data) => {
 
 const deleteProduct = (id) => {
   return axios({
-    url: "/telegram/product/all",
+    url: `/telegram/product/delete/${id}`,
     method: "DELETE",
   });
 };
 
-export { createProduct, getProducts };
+export { createProduct, getProducts, deleteProduct };

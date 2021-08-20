@@ -1,10 +1,14 @@
 import React from "react";
-import { createProduct, getProducts } from "../../../api/calls/product";
+import {
+  createProduct,
+  getProducts,
+  deleteProduct,
+} from "../../../api/calls/product";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateProductForm from "./CreateProductForm";
 
 const headerCols = ["Плошадки", "Тип", "Гео", "Цена", "Импортировать.ф"];
-const bodyCols = ["name", "category_id", "states_id", "price", "description"];
+const bodyCols = ["name", "type_name", "states_id", "price", "description"];
 
 function CreateCreative() {
   return (
@@ -15,6 +19,7 @@ function CreateCreative() {
       getTableData={getProducts}
       createTableData={createProduct}
       Form={CreateProductForm}
+      handleDelete={deleteProduct}
     ></TableCRUD>
   );
 }

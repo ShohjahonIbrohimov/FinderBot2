@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import Table from "./Table";
 
 function TableCRUD({
+  addBtn = true,
   getTableData,
   createTableData,
   handleDelete,
@@ -16,7 +17,7 @@ function TableCRUD({
   const [tableData, settableData] = useState([]);
   const [loading, setloading] = useState(false);
   const [tloading, settloading] = useState(false);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, watch, setValue } = useForm();
 
   const handleGetTableData = () => {
     settloading(true);
@@ -62,9 +63,11 @@ function TableCRUD({
       <div class="container">
         <div class="page-header">
           <h2 class="page-header__title">{title}</h2>
-          <button id="myBtn" class="app-button" onClick={handleModalOpen}>
-            Добавить
-          </button>
+          {addBtn && (
+            <button id="myBtn" class="app-button" onClick={handleModalOpen}>
+              Добавить
+            </button>
+          )}
         </div>
 
         <div style={{ minHeight: "80vh" }}>
@@ -90,12 +93,16 @@ function TableCRUD({
               <h3>Добавления аккаунта для продажа</h3>
             </div>
             <div class="modal-body">
-              <Form
-                loading={loading}
-                register={register}
-                handleSubmit={handleSubmit}
-                onSubmit={onSubmit}
-              />
+              {Form && (
+                <Form
+                  loading={loading}
+                  register={register}
+                  handleSubmit={handleSubmit}
+                  onSubmit={onSubmit}
+                  watch={watch}
+                  setValue={setValue}
+                />
+              )}
             </div>
           </div>
         </div>

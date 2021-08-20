@@ -51,6 +51,11 @@ const navItems = [
     icon: layoutMenuIcons.new_request,
     link: "/profile",
   },
+  {
+    name: "SMS",
+    icon: layoutMenuIcons.new_request,
+    link: "/sms",
+  },
 ];
 
 export default navItems;
