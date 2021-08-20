@@ -70,7 +70,7 @@ function TableCRUD({
           )}
         </div>
 
-        <div style={{ minHeight: "80vh" }}>
+        <div style={{ minHeight: "40vh" }}>
           <Loader light={false} loading={tloading} />
           <Table
             tableData={tableData}
