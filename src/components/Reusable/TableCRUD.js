@@ -41,12 +41,11 @@ function TableCRUD({
         handleGetTableData();
         setloading(false);
         reset();
-        toast.success("Бот создан");
+        toast.success("Успех");
       })
       .catch((err) => {
         setloading(false);
         toast.error(err.message);
-        // reset();
       });
   };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../../api/calls/category";
+import FileInput from "../../Reusable/FileInput";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 
 const ProductsForm = ({
@@ -11,17 +12,18 @@ const ProductsForm = ({
   setValue,
 }) => {
   const [categories, setcategories] = useState([]);
+  const [image, setImage] = useState(null);
 
   const cat_id = watch("category_id");
-
-  console.log(cat_id);
 
   useEffect(() => {
     setValue(
       "category_name",
       categories.filter((c) => c._id === cat_id)[0]?.name
     );
-  }, [cat_id]);
+    console.log(image);
+    setValue("file", image);
+  }, [cat_id, image]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
@@ -77,23 +79,18 @@ const ProductsForm = ({
       <br />
       <label>Название категории :</label>
       <br />
-      <input
-        disabled
-        type="tgaccount"
-        name="category_name"
-        ref={register({ required: true })}
-      />
+      <input disabled name="category_name" ref={register({ required: true })} />
       <br />
       <label>Цена:</label>
       <br />
-      <input type="tgaccount" name="price" ref={register({ required: true })} />
+      <input name="price" ref={register({ required: true })} />
       <label>Импортировать.ф:</label>
-      <br />
       <input
-        file="description"
-        type="file"
+        style={{ height: "0px", padding: "0px", margin: "0px", border: "none" }}
+        name="file"
         ref={register({ required: true })}
       />
+      <FileInput setValue={setImage} register={register} />
       <br />
       <LoaderBtn loading={loading} title="Добавить" />
     </form>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = ({ loading = true, light = true }) => {
+const Loader = ({ loading = false, light = true }) => {
   return (
     <>
       {loading && (

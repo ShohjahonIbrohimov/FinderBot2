@@ -13,16 +13,18 @@ const bodyCols = fields.map((field) => field.name);
 
 function CreateCreative() {
   return (
-    <TableCRUD
-      modalWidth={"90%"}
-      title="Добавления аккаунта для продажа"
-      headerCols={headerCols}
-      bodyCols={bodyCols}
-      getTableData={getSaleAccounts}
-      createTableData={createSaleAccount}
-      Form={CreateProductForm}
-      handleDelete={deleteSaleAccount}
-    ></TableCRUD>
+    <div>
+      <TableCRUD
+        modalWidth={"90%"}
+        title="Добавления аккаунта для продажа"
+        headerCols={headerCols}
+        bodyCols={bodyCols}
+        getTableData={getSaleAccounts}
+        createTableData={createSaleAccount}
+        Form={CreateProductForm}
+        handleDelete={deleteSaleAccount}
+      ></TableCRUD>
+    </div>
   );
 }
 
