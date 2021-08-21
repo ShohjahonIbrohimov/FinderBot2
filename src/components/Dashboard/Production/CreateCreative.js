@@ -6,9 +6,10 @@ import {
 } from "../../../api/calls/sale";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateProductForm from "./CreateProductForm";
+import { fields } from "./items";
 
-const headerCols = ["Имя", "ГЕО", "Цена", "Дата рождения"];
-const bodyCols = ["firstName", "geo", "price", "birthDate"];
+const headerCols = fields.map((field) => field.label);
+const bodyCols = fields.map((field) => field.name);
 
 function CreateCreative() {
   return (

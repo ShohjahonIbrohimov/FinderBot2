@@ -80,6 +80,10 @@ input[type="submit"]:hover {
   margin-right: 0.5rem;
 }
 
+td {
+  min-width: 150px;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

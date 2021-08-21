@@ -79,12 +79,14 @@ function TableCRUD({
 
         <div style={{ minHeight: "40vh" }}>
           <Loader light={false} loading={tloading} />
-          <Table
-            tableData={tableData}
-            headerCols={headerCols}
-            bodyCols={bodyCols}
-            handleDelete={deleteTableData}
-          />
+          <div style={{ overflow: "auto" }}>
+            <Table
+              tableData={tableData}
+              headerCols={headerCols}
+              bodyCols={bodyCols}
+              handleDelete={deleteTableData}
+            />
+          </div>
         </div>
 
         <div id="myModal" class="modal" style={open ? { display: "flex" } : {}}>

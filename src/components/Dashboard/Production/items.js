@@ -52,6 +52,7 @@ export const fields = [
     name: "birthDate",
     label: "Дата рождения",
     rules: { required: true },
+    minWidth: "150px",
   },
   {
     type: "text",
@@ -190,5 +191,6 @@ export const fields = [
     name: "data_pay",
     label: "Дата выплаты",
     rules: { required: true },
+    minWidth: "150px",
   },
 ];
