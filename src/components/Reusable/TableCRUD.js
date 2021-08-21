@@ -14,6 +14,7 @@ function TableCRUD({
   Form,
   title,
   modalWidth,
+  handleDownload,
 }) {
   const [open, setopen] = useState(false);
   const [tableData, settableData] = useState([]);
@@ -84,6 +85,7 @@ function TableCRUD({
               headerCols={headerCols}
               bodyCols={bodyCols}
               handleDelete={deleteTableData}
+              handleDownload={handleDownload}
             />
           </div>
         </div>

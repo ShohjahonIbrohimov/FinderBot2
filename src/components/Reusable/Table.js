@@ -1,6 +1,12 @@
 import React from "react";
 
-const Table = ({ tableData, headerCols, bodyCols, handleDelete }) => {
+const Table = ({
+  tableData,
+  headerCols,
+  bodyCols,
+  handleDelete,
+  handleDownload,
+}) => {
   return (
     <table>
       <tr>
@@ -23,6 +29,11 @@ const Table = ({ tableData, headerCols, bodyCols, handleDelete }) => {
               <span class="icon_wrap" onClick={() => handleDelete(p._id)}>
                 <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
               </span>
+              {handleDownload && (
+                <span class="icon_wrap" onClick={() => handleDownload(p._id)}>
+                  <i class="bx bxs-download" style={{ color: "#555" }}></i>
+                </span>
+              )}
             </td>
           </tr>
         ))}
