@@ -61,6 +61,11 @@ textarea {
   margin-bottom: 1rem;
 }
 
+input[type="date"],
+select {
+  height: 39.4px;
+}
+
 input[type="submit"] {
   background-color: var(--primary);
   color: #fff;

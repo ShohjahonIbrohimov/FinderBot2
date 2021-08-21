@@ -1,25 +1,26 @@
 import React from "react";
 import {
-  createProduct,
-  getProducts,
-  deleteProduct,
-} from "../../../api/calls/product";
+  createSaleAccount,
+  getSaleAccounts,
+  deleteSaleAccount,
+} from "../../../api/calls/sale";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateProductForm from "./CreateProductForm";
 
-const headerCols = ["Плошадки", "Тип", "Гео", "Цена", "Импортировать.ф"];
-const bodyCols = ["name", "type_name", "states_id", "price", "description"];
+const headerCols = ["Имя", "ГЕО", "Цена", "Дата рождения"];
+const bodyCols = ["firstName", "geo", "price", "birthDate"];
 
 function CreateCreative() {
   return (
     <TableCRUD
+      modalWidth={"90%"}
       title="Добавления аккаунта для продажа"
       headerCols={headerCols}
       bodyCols={bodyCols}
-      getTableData={getProducts}
-      createTableData={createProduct}
+      getTableData={getSaleAccounts}
+      createTableData={createSaleAccount}
       Form={CreateProductForm}
-      handleDelete={deleteProduct}
+      handleDelete={deleteSaleAccount}
     ></TableCRUD>
   );
 }

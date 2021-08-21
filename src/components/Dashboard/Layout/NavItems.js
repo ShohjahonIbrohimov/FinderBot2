@@ -22,6 +22,11 @@ const navItems = [
     link: "/production",
   },
   {
+    name: "Добавления продукты",
+    icon: layoutMenuIcons.domain,
+    link: "/products",
+  },
+  {
     name: "Меню",
     icon: layoutMenuIcons.domain,
     link: "/menu",

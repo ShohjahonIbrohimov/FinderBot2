@@ -13,6 +13,7 @@ function TableCRUD({
   bodyCols,
   Form,
   title,
+  modalWidth,
 }) {
   const [open, setopen] = useState(false);
   const [tableData, settableData] = useState([]);
@@ -45,7 +46,7 @@ function TableCRUD({
       .catch((err) => {
         setloading(false);
         toast.error(err.message);
-        reset();
+        // reset();
       });
   };
 
@@ -86,12 +87,11 @@ function TableCRUD({
           />
         </div>
 
-        <div
-          id="myModal"
-          class="modal"
-          style={open ? { display: "block" } : {}}
-        >
-          <div class="modal-content">
+        <div id="myModal" class="modal" style={open ? { display: "flex" } : {}}>
+          <div
+            class="modal-content"
+            style={modalWidth ? { width: modalWidth } : {}}
+          >
             <div class="modal-header">
               <span class="close" onClick={() => setopen(false)}>
                 &times;

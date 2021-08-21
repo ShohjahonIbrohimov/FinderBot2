@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../../api/calls/category";
 import LoaderBtn from "../../Reusable/LoaderBtn";
+import { fields } from "./items";
 
 const CreateProductForm = ({
   handleSubmit,
@@ -28,74 +29,61 @@ const CreateProductForm = ({
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} class="support-form">
-      <label>Плошадки:</label>
-      <br />
-      <select name="name" ref={register({ required: true })}>
-        <option value="Facebook">Facebook</option>
-        <option value="Tik-tok">Tik-tok</option>
-        <option value="Google">Google</option>
-      </select>
-      <br />
-      <label>Тип:</label>
-      <br />
-      <select name="type_name" ref={register({ required: true })}>
-        <option value="BM Facebook 50$">BM Facebook 50$</option>
-        <option value="BM Facebook 250$">BM Facebook 250$</option>
-        <option value="AK FB ЗРД + ФП + БМ + TOKEN EAAB">
-          AK FB ЗРД + ФП + БМ + TOKEN EAAB
-        </option>
-        <option value="Соц + БМ + ФП + линк инвайта в БМ + EAAB (личка) + EAAG (БМ)">
-          Соц + БМ + ФП + линк инвайта в БМ + EAAB (личка) + EAAG (БМ)
-        </option>
-        <option value=" Аккаунты ФБ ФП есть 14+ дней фарма + Token EAAB (есть фото) с друзьями">
-          Аккаунты ФБ ФП есть 14+ дней фарма + Token EAAB (есть фото) с друзьями
-          .
-        </option>
-        <option value="BM TRUST 250$">BM TRUST 250$</option>
-        <option value="BM VERIFIED (БЕЗ ДНЕВНОГО ЛИМИТА) -">
-          BM VERIFIED (БЕЗ ДНЕВНОГО ЛИМИТА) -
-        </option>
-      </select>
-      <br />
-      <label>Гео :</label>
-      <br />
-      <select name="states_id" ref={register({ required: true })}>
-        <option value="Россия">Россия</option>
-        <option value="Франция">Франция</option>
-        <option value="Украина">Украина</option>
-        <option value="США">США</option>
-      </select>
-      <br />
-      <label>Категория:</label>
-      <br />
-      <select name="category_id" ref={register({ required: true })}>
-        {categories.map((c) => (
-          <option value={c._id}>{c.name}</option>
-        ))}
-      </select>
-      <br />
-      <label>Название категории :</label>
-      <br />
-      <input
-        disabled
-        type="tgaccount"
-        name="category_name"
-        ref={register({ required: true })}
-      />
-      <br />
-      <label>Цена:</label>
-      <br />
-      <input type="tgaccount" name="price" ref={register({ required: true })} />
-      <label>Импортировать.ф:</label>
-      <br />
-      <input
-        file="description"
-        type="file"
-        ref={register({ required: true })}
-      />
-      <br />
-      <LoaderBtn loading={loading} title="Добавить" />
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      style={{
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
+    >
+      {fields.map((field) => {
+        if (field.type === "text" || field.type === "number") {
+          return (
+            <React.Fragment>
+              <div style={{ width: "24%" }}>
+                <label>{field.label}:</label>
+                <br />
+                <input name={field.name} ref={register(field.rules)} />
+              </div>
+            </React.Fragment>
+          );
+        } else if (field.type === "select") {
+          return (
+            <React.Fragment>
+              <div style={{ width: "24%" }}>
+                <label>{field.label}:</label>
+                <br />
+                <select name={field.name} ref={register(field.rules)}>
+                  {field.options.map((o) => (
+                    <option value={o.value}>{o.label}</option>
+                  ))}
+                </select>
+              </div>
+            </React.Fragment>
+          );
+        } else if (field.type === "date") {
+          return (
+            <React.Fragment>
+              <div style={{ width: "24%" }}>
+                <label>{field.label}:</label>
+                <br />
+                <input
+                  type={field.type}
+                  name={field.name}
+                  ref={register(field.rules)}
+                />
+              </div>
+            </React.Fragment>
+          );
+        }
+        return "";
+      })}
+      <div style={{ width: "24%" }}>
+        <br />
+        <LoaderBtn loading={loading} title="Добавить" />
+      </div>
     </form>
   );
 };

@@ -4,9 +4,9 @@ import Menu from "../components/Dashboard/Menu/Menu";
 import SMS from "../components/Dashboard/SMS/SMS";
 import BotSettings from "../components/Dashboard/BotSettings/BotSettings";
 import InitialdDashdDataLoad from "../config/InitialdDashdDataLoad";
+import Products from "../components/Dashboard/Products/Products";
 import {
   Dashboard,
-  Main,
   News,
   Offers,
   Webmaster,
@@ -95,14 +95,18 @@ export const DASHBOARD_ROUTES = [
     exact: true,
     component: () => <Master />,
   },
-
   {
     path: "/production",
     key: "DASHBOARD_PRODUCTION",
     exact: true,
     component: () => <Production />,
   },
-
+  {
+    path: "/products",
+    key: "DASHBOARD_PRODUCTS",
+    exact: true,
+    component: () => <Products />,
+  },
   {
     path: "/users",
     key: "DASHBOARD_USERS",
