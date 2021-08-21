@@ -27,6 +27,16 @@ const navItems = [
     link: "/products",
   },
   {
+    name: "Добавления Состояние",
+    icon: layoutMenuIcons.domain,
+    link: "/states",
+  },
+  {
+    name: "Добавления Корзина",
+    icon: layoutMenuIcons.domain,
+    link: "/carts",
+  },
+  {
     name: "Меню",
     icon: layoutMenuIcons.domain,
     link: "/menu",

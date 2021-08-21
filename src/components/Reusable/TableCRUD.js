@@ -96,7 +96,7 @@ function TableCRUD({
               <span class="close" onClick={() => setopen(false)}>
                 &times;
               </span>
-              <h3>Добавления аккаунта для продажа</h3>
+              <h3>{title}</h3>
             </div>
             <div class="modal-body">
               {Form && (

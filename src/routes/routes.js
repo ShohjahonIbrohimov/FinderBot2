@@ -5,6 +5,8 @@ import SMS from "../components/Dashboard/SMS/SMS";
 import BotSettings from "../components/Dashboard/BotSettings/BotSettings";
 import InitialdDashdDataLoad from "../config/InitialdDashdDataLoad";
 import Products from "../components/Dashboard/Products/Products";
+import States from "../components/Dashboard/States/States";
+import Carts from "../components/Dashboard/Carts/Carts";
 import {
   Dashboard,
   News,
@@ -106,6 +108,18 @@ export const DASHBOARD_ROUTES = [
     key: "DASHBOARD_PRODUCTS",
     exact: true,
     component: () => <Products />,
+  },
+  {
+    path: "/states",
+    key: "DASHBOARD_STATES",
+    exact: true,
+    component: () => <States />,
+  },
+  {
+    path: "/carts",
+    key: "DASHBOARD_CARTS",
+    exact: true,
+    component: () => <Carts />,
   },
   {
     path: "/users",
