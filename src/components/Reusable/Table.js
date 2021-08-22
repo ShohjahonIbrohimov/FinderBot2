@@ -30,9 +30,14 @@ const Table = ({
                 <i class="bx bxs-trash-alt" style={{ color: "#555" }}></i>
               </span>
               {handleDownload && (
-                <span class="icon_wrap" onClick={() => handleDownload(p._id)}>
-                  <i class="bx bxs-download" style={{ color: "#555" }}></i>
-                </span>
+                <a
+                  href={`https://api.g-obox.ru/api/download/file/send/${p._id}`}
+                  target="_blank"
+                >
+                  <span class="icon_wrap">
+                    <i class="bx bxs-download" style={{ color: "#555" }}></i>
+                  </span>
+                </a>
               )}
             </td>
           </tr>
