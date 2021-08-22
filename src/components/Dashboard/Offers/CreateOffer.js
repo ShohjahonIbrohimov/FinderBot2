@@ -59,7 +59,7 @@ const CreateOffer = () => {
 
   return (
     <div class="w3-container w3-margin-left">
-      <div class="wrap_first_page">
+      {/* <div class="wrap_first_page">
         <h1 class="main_title">Добавления текста о боте</h1>
         <div class="top_part">
           <h3>наш бот умеит все</h3>
@@ -89,7 +89,7 @@ const CreateOffer = () => {
             Сохранить
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
