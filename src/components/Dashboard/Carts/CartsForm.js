@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../../api/calls/category";
 import { getStates } from "../../../api/calls/states";
+import FileInput from "../../Reusable/FileInput";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 
 const ProductsForm = ({
@@ -13,6 +14,11 @@ const ProductsForm = ({
 }) => {
   const [categories, setcategories] = useState([]);
   const [states, setStates] = useState([]);
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    setValue("image", image);
+  }, [image]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
@@ -51,7 +57,13 @@ const ProductsForm = ({
         name="description"
         ref={register({ required: true })}
       />
+      <FileInput setValue={setImage} register={register} />
       <LoaderBtn loading={loading} title="Добавить" />
+      <input
+        style={{ height: "0px", padding: "0px", margin: "0px", border: "none" }}
+        name="image"
+        ref={register({ required: true })}
+      />
     </form>
   );
 };
