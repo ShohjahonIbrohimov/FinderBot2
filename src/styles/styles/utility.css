@@ -11,6 +11,19 @@
   justify-content: center;
   border-radius: 2px;
   cursor: pointer;
+  position: relative;
+}
+
+.icon_wrap .image {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  right: -50%;
+  display: none;
+}
+
+.icon_wrap:hover .image {
+  display: block;
 }
 
 .icon_wrap:hover {
@@ -81,7 +94,7 @@ input[type="submit"]:hover {
 }
 
 td {
-  min-width: 150px;
+  min-width: 50px;
 }
 
 /* width */

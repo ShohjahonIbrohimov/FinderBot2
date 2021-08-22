@@ -7,12 +7,27 @@ import {
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateProductForm from "./ProductsForm";
 
-const headerCols = ["Плошадки", "Тип", "Гео", "Цена", "Импортировать.ф"];
-const bodyCols = ["name", "type_name", "states_id", "price", "description"];
+const headerCols = [
+  "Плошадки",
+  "Тип",
+  "Гео",
+  "Цена",
+  "Изображение",
+  "Описание",
+];
+const bodyCols = [
+  "name",
+  "type_name",
+  "states_id",
+  "price",
+  "image",
+  "description",
+];
 
 function ProductsForm() {
   return (
     <TableCRUD
+      overflow={"none"}
       title="Добавления продукты"
       headerCols={headerCols}
       bodyCols={bodyCols}

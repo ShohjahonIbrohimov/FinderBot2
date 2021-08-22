@@ -21,6 +21,20 @@ const Table = ({
             {bodyCols.map((col) => {
               if (col === "username") {
                 return <td>@{p[col]}</td>;
+              } else if (col === "image") {
+                return (
+                  <td>
+                    <span class="icon_wrap">
+                      <i class="bx bx-image" style={{ color: "#555" }}></i>
+                      <img
+                        class="image"
+                        src={`https://api.g-obox.ru/${p[col]}`}
+                      />
+                    </span>
+                  </td>
+                );
+              } else if (col.indexOf("Дата")) {
+                return <td style={{ minWidth: "150px" }}>{p[col]}</td>;
               } else {
                 return <td>{p[col]}</td>;
               }

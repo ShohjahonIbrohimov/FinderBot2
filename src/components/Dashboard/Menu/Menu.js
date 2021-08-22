@@ -51,7 +51,7 @@ const Menu = ({}) => {
           handleDelete={deletePodcategory}
         ></TableCRUD>
         <TableCRUD
-          title="Добавления состояние"
+          title="Добавления Гео"
           headerCols={headerCols}
           bodyCols={bodyCols}
           getTableData={getStates}

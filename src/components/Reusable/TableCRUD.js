@@ -15,6 +15,7 @@ function TableCRUD({
   title,
   modalWidth,
   handleDownload,
+  overflow = "auto",
 }) {
   const [open, setopen] = useState(false);
   const [tableData, settableData] = useState([]);
@@ -79,7 +80,7 @@ function TableCRUD({
 
         <div style={{ minHeight: "40vh" }}>
           <Loader light={false} loading={tloading} />
-          <div style={{ overflow: "auto" }}>
+          <div style={{ overflow }}>
             <Table
               tableData={tableData}
               headerCols={headerCols}

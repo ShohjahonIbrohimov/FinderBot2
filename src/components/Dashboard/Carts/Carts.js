@@ -9,13 +9,14 @@ const bodyCols = ["name", "category_id", "states_id", "price", "description"];
 function ProductsForm() {
   return (
     <TableCRUD
-      title="Добавления Корзина"
+      title="Товары в корзине"
       headerCols={headerCols}
       bodyCols={bodyCols}
       getTableData={getCarts}
       createTableData={createCart}
       Form={CreateProductForm}
       handleDelete={() => {}}
+      addBtn={false}
     ></TableCRUD>
   );
 }

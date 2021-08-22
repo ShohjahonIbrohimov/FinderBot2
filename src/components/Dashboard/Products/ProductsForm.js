@@ -26,7 +26,7 @@ const ProductsForm = ({
       "category_name",
       categories.filter((c) => c._id === cat_id)[0]?.name
     );
-    setValue("file", image);
+    setValue("image", image);
   }, [cat_id, image]);
 
   useEffect(() => {
@@ -37,6 +37,9 @@ const ProductsForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} class="support-form">
+      <label>Название:</label>
+      <br />
+      <input name="name" ref={register({ required: true })} />
       <label>Категория:</label>
       <br />
       <select name="category_id" ref={register({ required: true })}>
@@ -64,14 +67,21 @@ const ProductsForm = ({
       <label>Цена:</label>
       <br />
       <input name="price" ref={register({ required: true })} />
-      <label>Импортировать.ф:</label>
+      <label>Изображение:</label>
       <input
         style={{ height: "0px", padding: "0px", margin: "0px", border: "none" }}
-        name="file"
+        name="image"
         ref={register({ required: true })}
       />
       <FileInput setValue={setImage} register={register} />
       <br />
+      <label>Описание:</label>
+      <br />
+      <textarea
+        rows="6"
+        name="description"
+        ref={register({ required: true })}
+      />
       <LoaderBtn loading={loading} title="Добавить" />
     </form>
   );
