@@ -10,6 +10,8 @@ import {
   getPodCategories,
   deletePodcategory,
 } from "../../../api/calls/pod_category";
+import { createState, getStates } from "../../../api/calls/states";
+import CreateProductForm from "./StatesForm";
 
 import MenuForm from "./MenuForm";
 import MenuFormPodcategory from "./MenuFormPodcategory";
@@ -17,10 +19,19 @@ import MenuFormPodcategory from "./MenuFormPodcategory";
 const headerColsMenu = ["Название"];
 const bodyColsMenu = ["name"];
 
+const headerCols = ["Название", "Категория"];
+const bodyCols = ["name", "category_id"];
+
 const Menu = ({}) => {
   return (
     <div class="w3-container">
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
         <TableCRUD
           title="Добавления меню"
           headerCols={headerColsMenu}
@@ -38,6 +49,15 @@ const Menu = ({}) => {
           createTableData={createPodCategory}
           Form={MenuFormPodcategory}
           handleDelete={deletePodcategory}
+        ></TableCRUD>
+        <TableCRUD
+          title="Добавления состояние"
+          headerCols={headerCols}
+          bodyCols={bodyCols}
+          getTableData={getStates}
+          createTableData={createState}
+          Form={CreateProductForm}
+          handleDelete={() => {}}
         ></TableCRUD>
       </div>
     </div>
