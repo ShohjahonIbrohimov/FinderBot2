@@ -16,6 +16,15 @@ const ProductsForm = ({
     getPodCategories().then((res) => setpodcategories(res.data.data));
   }, []);
 
+  const cat_id = watch("podcategory_id");
+
+  useEffect(() => {
+    setValue(
+      "podcategory_name",
+      podcategories.filter((c) => c._id === cat_id)[0]?.name
+    );
+  }, [cat_id]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} class="support-form">
       <label>Название:</label>
