@@ -15,8 +15,6 @@ const CreateProductForm = ({
 
   const cat_id = watch("category_id");
 
-  console.log(cat_id);
-
   useEffect(() => {
     setValue(
       "category_name",

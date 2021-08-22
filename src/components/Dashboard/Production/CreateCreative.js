@@ -13,31 +13,11 @@ const headerCols = fields.map((field) => field.label);
 const bodyCols = fields.map((field) => field.name);
 
 function CreateCreative() {
-  // function handleDownload(id) {
-  //   return axios.get(`/download/file/send/${id}`, {
-  //     responseType: "arraybuffer",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  // }
   const handleDownload = (id) => {
     axios({
       url: `/download/file/send/${id}`,
       method: "GET",
-    }).then((blob) => {
-      // Create blob link to download
-      // const url = window.URL.createObjectURL(new Blob([blob]));
-      // const link = document.createElement("a");
-      // link.href = url;
-      // link.setAttribute("download", `FileName.xlsx`);
-      // Append to html link element page
-      // document.body.appendChild(link);
-      // Start download
-      // link.click();
-      // Clean up and remove the link
-      // link.parentNode.removeChild(link);
-    });
+    }).then((blob) => {});
   };
 
   return (

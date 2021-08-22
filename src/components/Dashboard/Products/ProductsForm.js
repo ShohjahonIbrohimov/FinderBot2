@@ -68,7 +68,7 @@ const ProductsForm = ({
       </select>
       <label>Тип:</label>
       <br />
-      <select name="category_id" ref={register({ required: true })}>
+      <select name="type" ref={register({ required: true })}>
         {options.map((c) => (
           <option value={c.value}>{c.label}</option>
         ))}
@@ -76,7 +76,7 @@ const ProductsForm = ({
       <br />
       <label>Подкатегория:</label>
       <br />
-      <select name="type_name" ref={register({ required: true })}>
+      <select name="podcategory_name" ref={register({ required: true })}>
         {podcategories.map((c) => (
           <option value={c.name}>{c.name}</option>
         ))}
