@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCategories } from "../../../api/calls/category";
+import { getPodCategories } from "../../../api/calls/pod_category";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 
 const ProductsForm = ({
@@ -10,10 +10,10 @@ const ProductsForm = ({
   watch,
   setValue,
 }) => {
-  const [categories, setcategories] = useState([]);
+  const [podcategories, setpodcategories] = useState([]);
 
   useEffect(() => {
-    getCategories().then((res) => setcategories(res.data.data));
+    getPodCategories().then((res) => setpodcategories(res.data.data));
   }, []);
 
   return (
@@ -22,14 +22,25 @@ const ProductsForm = ({
       <br />
       <input name="name" ref={register({ required: true })} />
       <br />
-      <label>Категория:</label>
+      <label>Название подкатегории:</label>
       <br />
-      <select name="category_id" ref={register({ required: true })}>
-        {categories.map((c) => (
+      <select name="podcategory_id" ref={register({ required: true })}>
+        {podcategories.map((c) => (
           <option value={c._id}>{c.name}</option>
         ))}
       </select>
       <br />
+      <input
+        style={{
+          height: "0px",
+          margin: "0px",
+          padding: "0px",
+          overflow: "hidden",
+          border: "none",
+        }}
+        name="podcategory_name"
+        ref={register({ required: true })}
+      />
       <LoaderBtn loading={loading} title="Добавить" />
     </form>
   );
