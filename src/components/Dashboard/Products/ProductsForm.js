@@ -5,6 +5,25 @@ import FileInput from "../../Reusable/FileInput";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 import { getStates } from "../../../api/calls/states";
 
+const options = [
+  {
+    label: "Facebook",
+    value: "Facebook",
+  },
+  {
+    label: "Tiktok",
+    value: "Tiktok",
+  },
+  {
+    label: "Instagram",
+    value: "Instagram",
+  },
+  {
+    label: "YouTube",
+    value: "YouTube",
+  },
+];
+
 const ProductsForm = ({
   handleSubmit,
   onSubmit,
@@ -45,6 +64,13 @@ const ProductsForm = ({
       <select name="category_id" ref={register({ required: true })}>
         {categories.map((c) => (
           <option value={c._id}>{c.name}</option>
+        ))}
+      </select>
+      <label>Тип:</label>
+      <br />
+      <select name="category_id" ref={register({ required: true })}>
+        {options.map((c) => (
+          <option value={c.value}>{c.label}</option>
         ))}
       </select>
       <br />
