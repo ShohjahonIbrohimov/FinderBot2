@@ -15,11 +15,11 @@ const getStates = (data) => {
   });
 };
 
-const deleteProduct = (id) => {
+const deleteState = (id) => {
   return axios({
-    url: `/telegram/product/delete/${id}`,
+    url: `/telegram/states/delete/${id}`,
     method: "DELETE",
   });
 };
 
-export { createState, getStates, deleteProduct };
+export { createState, getStates, deleteState };

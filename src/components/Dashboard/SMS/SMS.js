@@ -1,5 +1,5 @@
 import React from "react";
-import { getSms } from "../../../api/calls/sms";
+import { getSms, deleteSms } from "../../../api/calls/sms";
 import TableCRUD from "../../Reusable/TableCRUD";
 
 const headerColsMenu = ["SMS", "Тип", "Телефон", "User ID", "TG ID", "TG nick"];
@@ -22,7 +22,7 @@ const SMS = () => {
         bodyCols={bodyColsMenu}
         getTableData={getSms}
         createTableData={() => {}}
-        handleDelete={() => {}}
+        handleDelete={deleteSms}
       ></TableCRUD>
     </div>
   );

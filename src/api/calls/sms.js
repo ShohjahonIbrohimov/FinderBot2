@@ -7,4 +7,11 @@ const getSms = () => {
   });
 };
 
-export { getSms };
+const deleteSms = (id) => {
+  return axios({
+    url: `/telegram/sms/delete/${id}`,
+    method: "DELETE",
+  });
+};
+
+export { getSms, deleteSms };

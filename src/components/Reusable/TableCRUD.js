@@ -102,19 +102,21 @@ function TableCRUD({
               </span>
               <h3>{title}</h3>
             </div>
-            <div class="modal-body">
-              {Form && (
-                <Form
-                  loading={loading}
-                  register={register}
-                  handleSubmit={handleSubmit}
-                  onSubmit={onSubmit}
-                  watch={watch}
-                  setValue={setValue}
-                  reset={reset}
-                />
-              )}
-            </div>
+            {open && (
+              <div class="modal-body">
+                {Form && (
+                  <Form
+                    loading={loading}
+                    register={register}
+                    handleSubmit={handleSubmit}
+                    onSubmit={onSubmit}
+                    watch={watch}
+                    setValue={setValue}
+                    reset={reset}
+                  />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

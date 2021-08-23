@@ -10,7 +10,7 @@ import {
   getPodCategories,
   deletePodcategory,
 } from "../../../api/calls/pod_category";
-import { createState, getStates } from "../../../api/calls/states";
+import { createState, getStates, deleteState } from "../../../api/calls/states";
 import CreateProductForm from "./StatesForm";
 
 import MenuForm from "./MenuForm";
@@ -57,7 +57,7 @@ const Menu = ({}) => {
           getTableData={getStates}
           createTableData={createState}
           Form={CreateProductForm}
-          handleDelete={() => {}}
+          handleDelete={deleteState}
         ></TableCRUD>
       </div>
     </div>
