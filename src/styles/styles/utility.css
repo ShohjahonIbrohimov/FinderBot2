@@ -16,7 +16,7 @@
 
 .icon_wrap .image {
   width: 300px;
-  height: 300px;
+  /* height: 300px; */
   position: fixed;
   /* right: -50%; */
   display: none;
@@ -115,4 +115,30 @@ td {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.three_dots {
+  display: inline-block;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.three_dots .content {
+  width: 500px;
+  /* height: 300px; */
+  position: fixed;
+  display: none;
+  right: 20%;
+  background-color: #ffffff;
+  white-space: pre-wrap;
+  padding: 1rem;
+  border: 1px solid var(--primary);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.three_dots:hover .content {
+  display: block;
 }

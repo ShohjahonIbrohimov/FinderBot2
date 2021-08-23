@@ -21,6 +21,17 @@ const Table = ({
             {bodyCols.map((col) => {
               if (col === "username") {
                 return <td>@{p[col]}</td>;
+              } else if (col === "description" || col === "name") {
+                return (
+                  <td>
+                    <span className="three_dots">
+                      {p[col]}{" "}
+                      <div className="content">
+                        <p>{p[col]}</p>
+                      </div>
+                    </span>
+                  </td>
+                );
               } else if (col === "image") {
                 return (
                   <td>
@@ -29,6 +40,7 @@ const Table = ({
                       <img
                         class="image"
                         src={`https://api.g-obox.ru/${p[col]}`}
+                        alt=""
                       />
                     </span>
                   </td>

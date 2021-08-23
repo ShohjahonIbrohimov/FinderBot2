@@ -39,10 +39,15 @@ const ProductsForm = ({
   const [image, setImage] = useState(null);
 
   const cat_id = watch("category_id");
+  const stat_id = watch("states_id");
 
   useEffect(() => {
     setValue("image", image);
-  }, [cat_id, image]);
+    setValue(
+      "states_name",
+      states.filter((state) => state._id === stat_id)[0]?.name
+    );
+  }, [stat_id, image]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
@@ -105,6 +110,11 @@ const ProductsForm = ({
         ref={register({ required: true })}
       />
       <LoaderBtn loading={loading} title="Добавить" />
+      <input
+        style={{ height: "0px", padding: "0px", margin: "0px", border: "none" }}
+        name="states_name"
+        ref={register({ required: true })}
+      />
     </form>
   );
 };
