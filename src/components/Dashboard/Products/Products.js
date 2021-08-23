@@ -13,6 +13,7 @@ const headerCols = [
   "Гео",
   "Цена",
   "Изображение",
+  "Категория",
   "Описание",
 ];
 const bodyCols = [
@@ -21,13 +22,14 @@ const bodyCols = [
   "states_id",
   "price",
   "image",
+  "category_name",
   "description",
 ];
 
 function ProductsForm() {
   return (
     <TableCRUD
-      overflow={"none"}
+      // overflow={"none"}
       title="Добавления продукты"
       headerCols={headerCols}
       bodyCols={bodyCols}

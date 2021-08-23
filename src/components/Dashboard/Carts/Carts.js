@@ -30,7 +30,7 @@ function ProductsForm() {
       createTableData={createCart}
       Form={CreateProductForm}
       handleDelete={() => {}}
-      // addBtn={false}
+      addBtn={false}
     ></TableCRUD>
   );
 }

@@ -41,10 +41,6 @@ const ProductsForm = ({
   const cat_id = watch("category_id");
 
   useEffect(() => {
-    setValue(
-      "category_name",
-      categories.filter((c) => c._id === cat_id)[0]?.name
-    );
     setValue("image", image);
   }, [cat_id, image]);
 
@@ -76,7 +72,7 @@ const ProductsForm = ({
       <br />
       <label>Подкатегория:</label>
       <br />
-      <select name="podcategory_name" ref={register({ required: true })}>
+      <select name="category_name" ref={register({ required: true })}>
         {podcategories.map((c) => (
           <option value={c.name}>{c.name}</option>
         ))}

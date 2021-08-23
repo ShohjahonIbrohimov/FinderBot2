@@ -31,7 +31,6 @@ import credit_card from "../assets/images/credit-card.svg";
 import Flag1 from "../assets/images/flag.svg";
 import Flag2 from "../assets/images/flag2.svg";
 import Flag3 from "../assets/images/flag3.svg";
-import { ReactComponent as Speaker } from "../assets/dashboard-main/speaker.svg";
 import { ReactComponent as Hand1 } from "../assets/dashboard-main/hand.svg";
 import { ReactComponent as Edit } from "../assets/dashboard-main/edit.svg";
 import { ReactComponent as GlobeWhite } from "../assets/dashboard-main/globe.svg";
@@ -107,11 +106,10 @@ import view_hide from "../assets/admin-images/view_hide.svg";
 import DateIcon from "../assets/admin-images/DateIcon.svg";
 import EditIcon from "../assets/admin-images/edit-icon.svg";
 import TrashIcon from "../assets/admin-images/trash_icon.svg";
-import Magnet from '../assets/admin-images/magnet.svg';
-import FilterIcon from '../assets/admin-images/filter-icon.svg'
+import Magnet from "../assets/admin-images/magnet.svg";
+import FilterIcon from "../assets/admin-images/filter-icon.svg";
 
-
-import TableArrows from '../assets/admin-images/TableArrows.svg'
+import TableArrows from "../assets/admin-images/TableArrows.svg";
 
 // webmaster
 import search_icon from "../assets/global-icons-images/Search_light.svg";
@@ -136,7 +134,7 @@ export const AdminImages = {
   TrashIcon,
   Magnet,
   FilterIcon,
-  TableArrows
+  TableArrows,
 };
 
 export const layoutMenuIcons = {
@@ -181,7 +179,6 @@ export const general_icons = {
   Flag1,
   Flag2,
   Flag3,
-  speaker: <Speaker />,
   hand: <Hand1 />,
   edit: <Edit />,
   globe_white: <GlobeWhite />,
@@ -257,5 +254,5 @@ export const call_center_icons = {
   userIcon,
   long_arrow_up,
   down_arrow_dropdown,
-  mini_basket_icon
-}
+  mini_basket_icon,
+};
