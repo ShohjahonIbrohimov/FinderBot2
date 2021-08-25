@@ -25,28 +25,31 @@ const MenuFormPodcategory = ({
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} class="support-form">
-      <label>Категория:</label>
-      <br />
-      <select name="category_id" ref={register({ required: true })}>
-        {categories.map((c) => (
-          <option value={c._id}>{c.name}</option>
-        ))}
-      </select>
-      <label>Название меню:</label>
-      <br />
-      <input name="name" ref={register({ required: true })} />
-      <input
-        style={{
-          height: "0px",
-          margin: "0px",
-          padding: "0px",
-          overflow: "hidden",
-          border: "none",
-        }}
-        name="category_name"
-        ref={register({ required: true })}
-      />
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-inputs-wrap">
+        <label>Под котегория:</label>
+        <br />
+        <input name="name" ref={register({ required: true })} />
+        <label>Категория:</label>
+        <br />
+        <select name="category_id" ref={register({ required: true })}>
+          {categories.map((c) => (
+            <option value={c._id}>{c.name}</option>
+          ))}
+        </select>
+
+        <input
+          style={{
+            height: "0px",
+            margin: "0px",
+            padding: "0px",
+            overflow: "hidden",
+            border: "none",
+          }}
+          name="category_name"
+          ref={register({ required: true })}
+        />
+      </div>
       <LoaderBtn loading={loading} title="Добавить" />
     </form>
   );

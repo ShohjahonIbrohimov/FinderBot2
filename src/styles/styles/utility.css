@@ -142,3 +142,14 @@ td {
 .three_dots:hover .content {
   display: block;
 }
+
+.form-inputs-wrap {
+  background: #efefef;
+  padding: 1rem;
+  min-height: 252px;
+  margin-bottom: 0.5rem;
+}
+
+.form {
+  margin-bottom: 2rem;
+}
