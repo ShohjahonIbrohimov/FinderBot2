@@ -10,7 +10,7 @@ const MenuForm = ({ handleSubmit, onSubmit, register, loading }) => {
         <textarea
           rows="8"
           type="tgaccount"
-          name="name"
+          name="description"
           ref={register({ required: true })}
         />
         <br />

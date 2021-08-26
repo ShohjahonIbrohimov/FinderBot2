@@ -6,9 +6,10 @@ import {
   deleteCategory,
 } from "../../../../api/calls/category";
 import MenuForm from "./ImportantNewsForm";
+import { createInfo, getInfos } from "../../../../api/calls/important-info";
 
 const headerColsMenu = ["Название"];
-const bodyColsMenu = ["name"];
+const bodyColsMenu = ["description"];
 
 const Menu = ({}) => {
   return (
@@ -26,10 +27,10 @@ const Menu = ({}) => {
             title="Добавления Важное инфо"
             headerCols={headerColsMenu}
             bodyCols={bodyColsMenu}
-            getTableData={getCategories}
-            createTableData={createCategory}
+            getTableData={getInfos}
+            createTableData={createInfo}
             Form={MenuForm}
-            handleDelete={deleteCategory}
+            handleDelete={() => {}}
           ></TableCRUD>
         </div>
       </div>

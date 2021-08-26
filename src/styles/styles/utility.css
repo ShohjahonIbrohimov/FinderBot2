@@ -128,6 +128,7 @@ td {
 .three_dots .content {
   width: 500px;
   /* height: 300px; */
+  word-wrap: break-word;
   position: fixed;
   display: none;
   right: 20%;
