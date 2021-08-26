@@ -16,6 +16,8 @@ function TableCRUD({
   modalWidth,
   handleDownload,
   overflow = "auto",
+  payusers,
+  handleUpdatePay,
 }) {
   const [open, setopen] = useState(false);
   const [tableData, settableData] = useState([]);
@@ -87,6 +89,8 @@ function TableCRUD({
               bodyCols={bodyCols}
               handleDelete={deleteTableData}
               handleDownload={handleDownload}
+              payusers={payusers}
+              handleUpdatePay={handleUpdatePay}
             />
           </div>
         </div>

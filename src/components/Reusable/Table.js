@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Table = ({
   tableData,
@@ -6,7 +6,15 @@ const Table = ({
   bodyCols,
   handleDelete,
   handleDownload,
+  payusers,
+  handleUpdatePay,
 }) => {
+  const [username, setusername] = useState("");
+
+  const handleSelectChange = (e) => {
+    setusername(e.target.value);
+  };
+
   return (
     <table>
       <tr>
@@ -46,7 +54,7 @@ const Table = ({
                   </td>
                 );
               } else if (col === "amount") {
-                return <td style={{ minWidth: "150px" }}>{p[col].value}</td>;
+                return <td style={{ minWidth: "150px" }}>{p[col].value} ₽</td>;
               } else if (col === "customFields") {
                 return (
                   <td style={{ minWidth: "150px" }}>
@@ -56,7 +64,19 @@ const Table = ({
               } else if (col === "customer") {
                 return <td style={{ minWidth: "150px" }}>{p[col].account}</td>;
               } else if (col === "status") {
-                return <td style={{ minWidth: "150px" }}>{p[col].value}</td>;
+                return (
+                  <td style={{ minWidth: "150px" }}>
+                    {p[col].value === "PAID" ? (
+                      <span style={{ color: "#5cb85c", fontWeight: "bold" }}>
+                        Оплачено
+                      </span>
+                    ) : (
+                      <span style={{ color: "#e54d4e", fontWeight: "bold" }}>
+                        Не оплачено
+                      </span>
+                    )}
+                  </td>
+                );
               } else if (col.indexOf("Дата")) {
                 return <td style={{ minWidth: "150px" }}>{p[col]}</td>;
               } else {
