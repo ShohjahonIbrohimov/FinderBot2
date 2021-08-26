@@ -45,6 +45,18 @@ const Table = ({
                     </span>
                   </td>
                 );
+              } else if (col === "amount") {
+                return <td style={{ minWidth: "150px" }}>{p[col].value}</td>;
+              } else if (col === "customFields") {
+                return (
+                  <td style={{ minWidth: "150px" }}>
+                    {p[col].paySourcesFilter}
+                  </td>
+                );
+              } else if (col === "customer") {
+                return <td style={{ minWidth: "150px" }}>{p[col].account}</td>;
+              } else if (col === "status") {
+                return <td style={{ minWidth: "150px" }}>{p[col].value}</td>;
               } else if (col.indexOf("Дата")) {
                 return <td style={{ minWidth: "150px" }}>{p[col]}</td>;
               } else {

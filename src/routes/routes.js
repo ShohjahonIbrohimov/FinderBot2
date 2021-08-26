@@ -5,6 +5,7 @@ import SMS from "../components/Dashboard/SMS/SMS";
 import BotSettings from "../components/Dashboard/BotSettings/BotSettings";
 import InitialdDashdDataLoad from "../config/InitialdDashdDataLoad";
 import Products from "../components/Dashboard/Products/Products";
+import PaymentHistory from "../components/Dashboard/PaymentHistory/PaymentHistory";
 import States from "../components/Dashboard/States/States";
 import Carts from "../components/Dashboard/Carts/Carts";
 import {
@@ -181,6 +182,12 @@ export const DASHBOARD_ROUTES = [
     key: "DASHBOARD_BOT_SETTINGS",
     exact: true,
     component: () => <BotSettings />,
+  },
+  {
+    path: "/payment-history",
+    key: "DASHBOARD_BOT_SETTINGS",
+    exact: true,
+    component: () => <PaymentHistory />,
   },
 ];
 

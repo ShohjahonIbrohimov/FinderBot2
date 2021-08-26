@@ -71,6 +71,11 @@ const navItems = [
     icon: layoutMenuIcons.new_request,
     link: "/bot-settings",
   },
+  // {
+  //   name: "Истории платежей",
+  //   icon: layoutMenuIcons.new_request,
+  //   link: "/payment-history",
+  // },
 ];
 
 export default navItems;
