@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import TableCRUD from "../../../Reusable/TableCRUD2";
-import {
-  createCategory,
-  getCategories,
-  deleteCategory,
-} from "../../../../api/calls/category";
-import MenuForm from "./ImportantNewsForm";
-import { createInfo, getInfos } from "../../../../api/calls/important-info";
 
-const headerColsMenu = ["Название"];
-const bodyColsMenu = ["description"];
+import MenuForm from "./ImportantNewsForm";
+import {
+  createInfo,
+  deleteInfo,
+  getInfos,
+} from "../../../../api/calls/important-info";
+
+const headerColsMenu = ["Название", "Статус"];
+const bodyColsMenu = ["description", "status_info"];
 
 const Menu = ({}) => {
   return (
@@ -30,7 +30,7 @@ const Menu = ({}) => {
             getTableData={getInfos}
             createTableData={createInfo}
             Form={MenuForm}
-            handleDelete={() => {}}
+            handleDelete={deleteInfo}
           ></TableCRUD>
         </div>
       </div>

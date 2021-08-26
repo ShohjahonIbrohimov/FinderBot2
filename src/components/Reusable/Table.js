@@ -77,6 +77,20 @@ const Table = ({
                     )}
                   </td>
                 );
+              } else if (col === "status_info") {
+                return (
+                  <td style={{ minWidth: "150px" }}>
+                    {p[col] === "PAID" ? (
+                      <span style={{ color: "#5cb85c", fontWeight: "bold" }}>
+                        доставлено
+                      </span>
+                    ) : (
+                      <span style={{ color: "#e54d4e", fontWeight: "bold" }}>
+                        не доставлено
+                      </span>
+                    )}
+                  </td>
+                );
               } else if (col.indexOf("Дата")) {
                 return <td style={{ minWidth: "150px" }}>{p[col]}</td>;
               } else {

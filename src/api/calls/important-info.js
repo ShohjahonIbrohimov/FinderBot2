@@ -15,11 +15,11 @@ const getInfos = (data) => {
   });
 };
 
-const deleteProduct = (id) => {
+const deleteInfo = (id) => {
   return axios({
-    url: `/telegram/product/delete/${id}`,
+    url: `https://api.g-obox.ru/offers/news/delete/${id}`,
     method: "DELETE",
   });
 };
 
-export { createInfo, getInfos, deleteProduct };
+export { createInfo, getInfos, deleteInfo };
