@@ -80,7 +80,7 @@ const Table = ({
               } else if (col === "status_info") {
                 return (
                   <td style={{ minWidth: "150px" }}>
-                    {p[col] === "PAID" ? (
+                    {p.status ? (
                       <span style={{ color: "#5cb85c", fontWeight: "bold" }}>
                         доставлено
                       </span>

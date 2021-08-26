@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { getPayments, payPayment } from "../../../api/calls/payment";
+import { getPayments, payPayment, deletePay } from "../../../api/calls/payment";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateToolForm from "./CreateToolForm";
 
@@ -27,7 +27,7 @@ function CreateTool() {
           <h3>Qiwi</h3>
           <CreateToolForm />
         </div>
-        <div style={{ marginRight: "1.5rem", width: "40%" }}>
+        {/* <div style={{ marginRight: "1.5rem", width: "40%" }}>
           <h3>Qiwi</h3>
           <CreateToolForm />
         </div>
@@ -38,7 +38,7 @@ function CreateTool() {
         <div style={{ marginRight: "1.5rem", width: "40%" }}>
           <h3>Qiwi</h3>
           <CreateToolForm />
-        </div>
+        </div> */}
       </div>
 
       <TableCRUD
@@ -48,7 +48,7 @@ function CreateTool() {
         getTableData={getPayments}
         createTableData={payPayment}
         Form={false}
-        handleDelete={() => {}}
+        handleDelete={deletePay}
         addBtn={false}
         payusers={users}
         handleUpdatePay={handleUpdatePay}

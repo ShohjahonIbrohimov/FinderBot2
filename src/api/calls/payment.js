@@ -23,4 +23,11 @@ const payPayment = (data) => {
   });
 };
 
-export { checkPayment, getPayments, payPayment };
+const deletePay = (id) => {
+  return axios({
+    url: `https://api.g-obox.ru/offers/qiwi/qiwi/delete/${id}`,
+    method: "DELETE",
+  });
+};
+
+export { checkPayment, getPayments, payPayment, deletePay };
