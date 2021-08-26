@@ -19,6 +19,12 @@ export const fields = [
   },
   {
     type: "text",
+    name: "phone",
+    label: "Телефон",
+    rules: { required: true },
+  },
+  {
+    type: "text",
     name: "login",
     label: "Логин",
     rules: { required: true },
