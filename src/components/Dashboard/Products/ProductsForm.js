@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../../api/calls/category";
 import { getPodCategories } from "../../../api/calls/pod_category";
+import { getSaleAccounts } from "../../../api/calls/sale";
 import FileInput from "../../Reusable/FileInput";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 import { getStates } from "../../../api/calls/states";
@@ -35,6 +36,7 @@ const ProductsForm = ({
   const [categories, setcategories] = useState([]);
   const [podcategories, setpodcategories] = useState([]);
   const [states, setStates] = useState([]);
+  const [sales, setsales] = useState([]);
 
   const [image, setImage] = useState(null);
 
@@ -53,6 +55,7 @@ const ProductsForm = ({
     getCategories().then((res) => setcategories(res.data.data));
     getPodCategories().then((res) => setpodcategories(res.data.data));
     getStates().then((res) => setStates(res.data.data));
+    getSaleAccounts().then((res) => setsales(res.data.data));
   }, []);
 
   return (
@@ -88,6 +91,17 @@ const ProductsForm = ({
       <select name="states_id" ref={register({ required: true })}>
         {states.map((c) => (
           <option value={c._id}>{c.name}</option>
+        ))}
+      </select>
+      <br />
+      <br />
+      <label>Аккаунт:</label>
+      <br />
+      <select name="file" ref={register({ required: true })}>
+        {sales.map((c) => (
+          <option value={c._id}>
+            {c.firstName} + {c.type_os}
+          </option>
         ))}
       </select>
       <br />
