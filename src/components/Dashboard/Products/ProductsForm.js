@@ -72,7 +72,7 @@ const ProductsForm = ({
       </select>
       <label>Тип:</label>
       <br />
-      <select name="type" ref={register({ required: true })}>
+      <select name="type_name" ref={register({ required: true })}>
         {options.map((c) => (
           <option value={c.value}>{c.label}</option>
         ))}
