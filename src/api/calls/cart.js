@@ -15,11 +15,11 @@ const getCarts = (data) => {
   });
 };
 
-const deleteProduct = (id) => {
+const deleteCart = (id) => {
   return axios({
-    url: `/telegram/product/delete/${id}`,
+    url: `/telegram/cart/delete/${id}`,
     method: "DELETE",
   });
 };
 
-export { createCart, getCarts };
+export { createCart, getCarts, deleteCart };

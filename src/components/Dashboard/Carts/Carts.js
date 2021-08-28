@@ -1,5 +1,5 @@
 import React from "react";
-import { createCart, getCarts } from "../../../api/calls/cart";
+import { createCart, getCarts, deleteCart } from "../../../api/calls/cart";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateProductForm from "./CartsForm";
 
@@ -29,7 +29,7 @@ function ProductsForm() {
       getTableData={getCarts}
       createTableData={createCart}
       Form={CreateProductForm}
-      handleDelete={() => {}}
+      handleDelete={deleteCart}
       addBtn={false}
     ></TableCRUD>
   );
