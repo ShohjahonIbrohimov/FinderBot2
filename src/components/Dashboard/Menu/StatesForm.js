@@ -21,13 +21,15 @@ const ProductsForm = ({
   }, [change]);
 
   const cat_id = watch("category_id");
+  const name = watch("name");
 
   useEffect(() => {
     setValue(
       "category_name",
-      podcategories.filter((c) => c._id === cat_id)[0]?.name
+      podcategories.filter((c) => c._id === cat_id)[0]?.name?.trim()
     );
-  }, [cat_id]);
+    setValue("name", name?.trim());
+  }, [cat_id, name]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">

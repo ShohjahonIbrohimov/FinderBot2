@@ -13,13 +13,15 @@ const MenuFormPodcategory = ({
 }) => {
   const [categories, setcategories] = useState([]);
   const cat_id = watch("category_id");
+  const name = watch("name");
 
   useEffect(() => {
     setValue(
       "category_name",
-      categories.filter((c) => c._id === cat_id)[0]?.name
+      categories.filter((c) => c._id === cat_id)[0]?.name?.trim()
     );
-  }, [cat_id]);
+    setValue("name", name?.trim());
+  }, [cat_id, name]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
