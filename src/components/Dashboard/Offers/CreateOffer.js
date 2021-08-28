@@ -5,7 +5,7 @@ import MenuForm from "./ImportantNewsForm";
 import {
   createBotText,
   deleteInfo,
-  getBotText,
+  getInfos,
 } from "../../../api/calls/bot-text";
 
 const headerColsMenu = ["Название", "Статус"];
@@ -27,7 +27,7 @@ const Menu = ({}) => {
             title="Добавления Важное инфо"
             headerCols={headerColsMenu}
             bodyCols={bodyColsMenu}
-            getTableData={getBotText}
+            getTableData={getInfos}
             createTableData={createBotText}
             Form={MenuForm}
             handleDelete={deleteInfo}

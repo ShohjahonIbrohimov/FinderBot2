@@ -8,9 +8,9 @@ const createBotText = (data) => {
   });
 };
 
-const getBotText = (data) => {
+const getInfos = (data) => {
   return axios({
-    url: "https://api.g-obox.ru/offers/user/update",
+    url: "https://api.g-obox.ru/offers/news/all",
     method: "GET",
   });
 };
@@ -22,4 +22,4 @@ const deleteInfo = (id) => {
   });
 };
 
-export { createBotText, getBotText, deleteInfo };
+export { createBotText, getInfos, deleteInfo };
