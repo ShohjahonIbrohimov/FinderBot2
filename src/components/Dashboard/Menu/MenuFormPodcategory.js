@@ -9,6 +9,7 @@ const MenuFormPodcategory = ({
   loading,
   watch,
   setValue,
+  change,
 }) => {
   const [categories, setcategories] = useState([]);
   const cat_id = watch("category_id");
@@ -22,7 +23,7 @@ const MenuFormPodcategory = ({
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
-  }, []);
+  }, [change]);
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -33,6 +34,7 @@ const MenuFormPodcategory = ({
         <label>Категория:</label>
         <br />
         <select name="category_id" ref={register({ required: true })}>
+          <option value="">Выберите категорию</option>
           {categories.map((c) => (
             <option value={c._id}>{c.name}</option>
           ))}

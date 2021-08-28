@@ -39,6 +39,7 @@ const ProductsForm = ({
         <label>Название подкатегории:</label>
         <br />
         <select name="category_id" ref={register({ required: true })}>
+          <option value="">Выберите подкатегории</option>
           {podcategories.map((c) => (
             <option value={c._id}>{c.name}</option>
           ))}

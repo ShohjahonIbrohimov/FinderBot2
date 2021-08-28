@@ -48,6 +48,8 @@ const Menu = ({}) => {
             createTableData={createCategory}
             Form={MenuForm}
             handleDelete={deleteCategory}
+            change={change}
+            handleChange={handleChange}
           ></TableCRUD>
         </div>
         <div style={{ width: "32%" }}>
@@ -60,6 +62,7 @@ const Menu = ({}) => {
             Form={MenuFormPodcategory}
             handleDelete={deletePodcategory}
             handleChange={handleChange}
+            change={change}
           ></TableCRUD>
         </div>
         <div style={{ width: "32%" }}>
