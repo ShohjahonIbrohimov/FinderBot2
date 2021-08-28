@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TableCRUD from "../../Reusable/TableCRUD2";
 import {
   createCategory,
@@ -12,7 +12,7 @@ import {
 } from "../../../api/calls/pod_category";
 import { createState, getStates, deleteState } from "../../../api/calls/states";
 import CreateProductForm from "./StatesForm";
-
+import axios from "axios";
 import MenuForm from "./MenuForm";
 import MenuFormPodcategory from "./MenuFormPodcategory";
 
@@ -28,6 +28,16 @@ const Menu = ({}) => {
   const handleChange = () => {
     setchange(!change);
   };
+
+  useEffect(() => {
+    axios.get("https://api.g-obox.ru/api/telegram/podcategory", {
+      paramsSerializer: function (params) {
+        var result = "6129d1f7ae88f47cc6102fd7";
+        // Build the query string
+        return result;
+      },
+    });
+  }, []);
 
   return (
     <div class="w3-container">
