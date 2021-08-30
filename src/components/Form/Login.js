@@ -40,7 +40,6 @@ const Login = () => {
           <div className="registerSectionFlexSub">
             <form onSubmit={handleSubmit(handleLogin)} className="mt-4">
               <h1 className="auth_title">Вход</h1>
-
               <input
                 type="text"
                 name="email"

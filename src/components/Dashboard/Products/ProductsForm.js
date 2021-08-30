@@ -42,14 +42,16 @@ const ProductsForm = ({
 
   const cat_id = watch("category_id");
   const stat_id = watch("states_id");
+  const name = watch("name");
 
   useEffect(() => {
     setValue("image", image);
+    setValue("name", name?.trim());
     setValue(
       "states_name",
       states.filter((state) => state._id === stat_id)[0]?.name
     );
-  }, [stat_id, image]);
+  }, [stat_id, image, name]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
