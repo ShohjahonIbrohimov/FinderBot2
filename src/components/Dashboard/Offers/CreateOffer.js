@@ -14,7 +14,7 @@ const bodyColsMenu = ["description", "status_info"];
 const Menu = ({}) => {
   return (
     <div class="w3-container">
-      <h2>Добавления Важное инфо</h2>
+      <h2>Добавления текста о боте</h2>
       <div
         style={{
           display: "flex",
@@ -24,7 +24,7 @@ const Menu = ({}) => {
       >
         <div style={{ width: "50%" }}>
           <TableCRUD
-            title="Добавления Важное инфо"
+            title="Добавления текста о боте"
             headerCols={headerColsMenu}
             bodyCols={bodyColsMenu}
             getTableData={getInfos}

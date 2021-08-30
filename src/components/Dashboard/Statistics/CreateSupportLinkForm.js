@@ -11,7 +11,7 @@ const ProductsForm = ({}) => {
 
   useEffect(() => {
     axios({
-      url: "https://api.g-obox.ru/offers/telegram/users/all/info",
+      url: "https://api.g-obox.ru/offers/payment/all/users",
       method: "GET",
     }).then((res) => setusers(res.data.data));
   }, []);
@@ -19,7 +19,7 @@ const ProductsForm = ({}) => {
   const onSubmit = (data) => {
     setloading(true);
     axios({
-      url: "https://api.g-obox.ru/offers/telegram/info/bot/update",
+      url: "https://api.g-obox.ru/offers/support/link/update ",
       method: "POST",
       data,
     })
@@ -41,8 +41,9 @@ const ProductsForm = ({}) => {
             <option value={o.username}>{o.username}</option>
           ))}
         </select>
-        <label>Описание:</label>
-        <textarea rows="8" name="bot_info" ref={register({ required: true })} />
+        <label>Ссылка:</label>
+        <br />
+        <input name="link" ref={register({ required: true })} />
         <br />
         <br />
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { deleteSupport, getSupports } from "../../../api/calls/support";
 import TableCRUD from "../../Reusable/TableCRUD";
+import CreateSupportLinkForm from "./CreateSupportLinkForm";
 
 const headerCols = [
   "Имя пользователя",
@@ -35,44 +36,9 @@ const Statistics = ({}) => {
         addBtn={false}
       ></TableCRUD>
 
-      <div id="myModal" class="modal" style={open ? { display: "block" } : {}}>
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close" onClick={() => setopen(false)}>
-              &times;
-            </span>
-            <h3>Добавление Суппорта</h3>
-          </div>
-          <div class="modal-body">
-            <form action="/action_page.php" class="support-form">
-              <label for="fname">Имя:</label>
-              <br />
-              <input type="text" id="fname" name="fname" />
-              <br />
-              <label for="lname">Фамилия:</label>
-              <br />
-              <input type="text" id="lname" name="lname" />
-              <br />
-              <label for="email">Почта:</label>
-              <br />
-              <input type="email" id="email" name="email" />
-              <br />
-              <label for="tgaccount">Телеграм аккаунт:</label>
-              <br />
-              <input type="tgaccount" id="tgaccount" name="tgaccount" />
-              <br />
-              <label for="select">Роль:</label>
-              <br />
-              <select>
-                <option value="1">Админ</option>
-                <option value="2">Суппорт</option>
-              </select>
-              <br />
-              <br />
-              <input type="submit" value="Добавить" />
-            </form>
-          </div>
-        </div>
+      <div style={{ width: "40%" }}>
+        <h3>Support Link</h3>
+        <CreateSupportLinkForm />
       </div>
     </div>
   );
