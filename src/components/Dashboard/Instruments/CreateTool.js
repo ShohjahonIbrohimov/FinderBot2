@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getPayments, payPayment, deletePay } from "../../../api/calls/payment";
 import TableCRUD from "../../Reusable/TableCRUD";
 import CreateToolForm from "./CreateToolForm";
+import CreateToolFormYoomoney from "./CreateToolFormYoomoney";
 
 const headerColsMenu = ["Сумма", "Способ оплаты", "Покупатель", "Статус"];
 const bodyColsMenu = ["amount", "customFields", "customer", "status"];
@@ -27,18 +28,10 @@ function CreateTool() {
           <h3>Qiwi</h3>
           <CreateToolForm />
         </div>
-        {/* <div style={{ marginRight: "1.5rem", width: "40%" }}>
-          <h3>Qiwi</h3>
-          <CreateToolForm />
-        </div>
         <div style={{ marginRight: "1.5rem", width: "40%" }}>
-          <h3>Qiwi</h3>
-          <CreateToolForm />
+          <h3>YooMoney</h3>
+          <CreateToolFormYoomoney />
         </div>
-        <div style={{ marginRight: "1.5rem", width: "40%" }}>
-          <h3>Qiwi</h3>
-          <CreateToolForm />
-        </div> */}
       </div>
 
       <TableCRUD
@@ -58,37 +51,3 @@ function CreateTool() {
 }
 
 export default CreateTool;
-{
-  /* <div>
-          <label for="fname">Карты:</label>
-          <br />
-          <div class="payment-method-input-item">
-            <input type="text" id="fname" name="fname" />
-            <button class="app-button">+</button>
-          </div>
-        </div>
-        <div>
-          <label for="fname">Ю моней:</label>
-          <br />
-          <div class="payment-method-input-item">
-            <input type="text" id="fname" name="fname" />
-            <button class="app-button">+</button>
-          </div>
-        </div>
-        <div>
-          <label for="fname">Web money:</label>
-          <br />
-          <div class="payment-method-input-item">
-            <input type="text" id="fname" name="fname" />
-            <button class="app-button">+</button>
-          </div>
-        </div>
-        <div>
-          <label for="fname">QIWI:</label>
-          <br />
-          <div class="payment-method-input-item">
-            <input type="text" id="fname" name="fname" />
-            <button class="app-button">+</button>
-          </div>
-        </div> */
-}

@@ -66,7 +66,9 @@ const Table = ({
               } else if (col === "status") {
                 return (
                   <td style={{ minWidth: "150px" }}>
-                    {p[col].value === "PAID" ? (
+                    {p[col].value === "PAID" ||
+                    p[col].value === "SUCCESS" ||
+                    p[col].value === "succeeded" ? (
                       <span style={{ color: "#5cb85c", fontWeight: "bold" }}>
                         Оплачено
                       </span>
