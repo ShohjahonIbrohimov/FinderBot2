@@ -5,6 +5,7 @@ import { getSaleAccounts } from "../../../api/calls/sale";
 import FileInput from "../../Reusable/FileInput";
 import LoaderBtn from "../../Reusable/LoaderBtn";
 import { getStates } from "../../../api/calls/states";
+import { getShowcases } from "../../../api/calls/showcase";
 
 const options = [
   {
@@ -25,6 +26,13 @@ const options = [
   },
 ];
 
+const inputHiddenStyle = {
+  height: "0px",
+  padding: "0px",
+  margin: "0px",
+  border: "none",
+};
+
 const ProductsForm = ({
   handleSubmit,
   onSubmit,
@@ -36,12 +44,14 @@ const ProductsForm = ({
   const [categories, setcategories] = useState([]);
   const [podcategories, setpodcategories] = useState([]);
   const [states, setStates] = useState([]);
+  const [showcases, setShowcases] = useState([]);
   const [sales, setsales] = useState([]);
 
   const [image, setImage] = useState(null);
 
   const cat_id = watch("category_id");
   const stat_id = watch("states_id");
+  const showcase_id = watch("showcase_id");
   const name = watch("name");
 
   useEffect(() => {
@@ -51,12 +61,17 @@ const ProductsForm = ({
       "states_name",
       states.filter((state) => state._id === stat_id)[0]?.name
     );
-  }, [stat_id, image, name]);
+    setValue(
+      "showcase_name",
+      showcases.filter((showcase) => showcase._id === showcase_id)[0]?.name
+    );
+  }, [stat_id, image, name, showcase_id]);
 
   useEffect(() => {
     getCategories().then((res) => setcategories(res.data.data));
     getPodCategories().then((res) => setpodcategories(res.data.data));
     getStates().then((res) => setStates(res.data.data));
+    getShowcases().then((res) => setShowcases(res.data.data));
     getSaleAccounts().then((res) => setsales(res.data.data));
   }, []);
 
@@ -96,6 +111,13 @@ const ProductsForm = ({
         ))}
       </select>
       <br />
+      <label>Витрина:</label>
+      <br />
+      <select name="showcase_id" ref={register({ required: true })}>
+        {showcases.map((c) => (
+          <option value={c._id}>{c.name}</option>
+        ))}
+      </select>
       <br />
       <label>Аккаунт:</label>
       <br />
@@ -127,8 +149,13 @@ const ProductsForm = ({
       />
       <LoaderBtn loading={loading} title="Добавить" />
       <input
-        style={{ height: "0px", padding: "0px", margin: "0px", border: "none" }}
+        style={inputHiddenStyle}
         name="states_name"
+        ref={register({ required: true })}
+      />
+      <input
+        style={inputHiddenStyle}
+        name="showcase_name"
         ref={register({ required: true })}
       />
     </form>

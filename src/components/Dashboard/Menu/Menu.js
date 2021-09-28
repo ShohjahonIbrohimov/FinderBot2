@@ -11,6 +11,11 @@ import {
   deletePodcategory,
 } from "../../../api/calls/pod_category";
 import { createState, getStates, deleteState } from "../../../api/calls/states";
+import {
+  createShowcase,
+  getShowcases,
+  deleteShowcase,
+} from "../../../api/calls/showcase";
 import CreateProductForm from "./StatesForm";
 import axios from "axios";
 import MenuForm from "./MenuForm";
@@ -21,6 +26,11 @@ const bodyColsMenu = ["name"];
 
 const headerCols = ["Название"];
 const bodyCols = ["name"];
+
+const menuItemStyle = {
+  width: "32%",
+  marginBottom: "2rem",
+};
 
 const Menu = ({}) => {
   const [change, setchange] = useState(false);
@@ -49,7 +59,7 @@ const Menu = ({}) => {
           flexWrap: "wrap",
         }}
       >
-        <div style={{ width: "32%" }}>
+        <div style={menuItemStyle}>
           <TableCRUD
             title="Добавления меню"
             headerCols={headerColsMenu}
@@ -62,7 +72,7 @@ const Menu = ({}) => {
             handleChange={handleChange}
           ></TableCRUD>
         </div>
-        <div style={{ width: "32%" }}>
+        <div style={menuItemStyle}>
           <TableCRUD
             title="Добавления Podcategory"
             headerCols={headerColsMenu}
@@ -75,7 +85,7 @@ const Menu = ({}) => {
             change={change}
           ></TableCRUD>
         </div>
-        <div style={{ width: "32%" }}>
+        <div style={menuItemStyle}>
           <TableCRUD
             title="Добавления Гео"
             headerCols={headerCols}
@@ -84,6 +94,18 @@ const Menu = ({}) => {
             createTableData={createState}
             Form={CreateProductForm}
             handleDelete={deleteState}
+            change={change}
+          ></TableCRUD>
+        </div>
+        <div style={menuItemStyle}>
+          <TableCRUD
+            title="Добавления Гео"
+            headerCols={headerCols}
+            bodyCols={bodyCols}
+            getTableData={getShowcases}
+            createTableData={createShowcase}
+            Form={CreateProductForm}
+            handleDelete={deleteShowcase}
             change={change}
           ></TableCRUD>
         </div>

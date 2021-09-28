@@ -11,6 +11,7 @@ const headerCols = [
   "Плошадки",
   "Тип",
   "Гео",
+  "Витрина",
   "Цена",
   "Изображение",
   "Категория",
@@ -19,7 +20,8 @@ const headerCols = [
 const bodyCols = [
   "name",
   "type_name",
-  "states_id",
+  "states_name",
+  "showcase_name",
   "price",
   "image",
   "category_name",
