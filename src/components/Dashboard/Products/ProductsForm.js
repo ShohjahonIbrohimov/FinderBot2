@@ -65,6 +65,11 @@ const ProductsForm = ({
       "showcase_name",
       showcases.filter((showcase) => showcase._id === showcase_id)[0]?.name
     );
+    setValue(
+      "states_showcase_name",
+      showcases.filter((showcase) => showcase._id === showcase_id)[0]
+        ?.category_name
+    );
   }, [stat_id, image, name, showcase_id]);
 
   useEffect(() => {
@@ -156,6 +161,11 @@ const ProductsForm = ({
       <input
         style={inputHiddenStyle}
         name="showcase_name"
+        ref={register({ required: true })}
+      />
+      <input
+        style={inputHiddenStyle}
+        name="states_showcase_name"
         ref={register({ required: true })}
       />
     </form>

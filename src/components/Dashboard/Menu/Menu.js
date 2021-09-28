@@ -17,6 +17,7 @@ import {
   deleteShowcase,
 } from "../../../api/calls/showcase";
 import CreateProductForm from "./StatesForm";
+import ShowcaseForm from "./ShowcaseForm";
 import axios from "axios";
 import MenuForm from "./MenuForm";
 import MenuFormPodcategory from "./MenuFormPodcategory";
@@ -36,6 +37,7 @@ const Menu = ({}) => {
   const [change, setchange] = useState(false);
 
   const handleChange = () => {
+    console.log("fired");
     setchange(!change);
   };
 
@@ -94,6 +96,7 @@ const Menu = ({}) => {
             createTableData={createState}
             Form={CreateProductForm}
             handleDelete={deleteState}
+            handleChange={handleChange}
             change={change}
           ></TableCRUD>
         </div>
@@ -104,7 +107,7 @@ const Menu = ({}) => {
             bodyCols={bodyCols}
             getTableData={getShowcases}
             createTableData={createShowcase}
-            Form={CreateProductForm}
+            Form={ShowcaseForm}
             handleDelete={deleteShowcase}
             change={change}
           ></TableCRUD>
